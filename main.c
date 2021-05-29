@@ -2,6 +2,9 @@
 #include "mysql_test.h"
 
 int main() {
-	dbconnect();
+
+	char* Serial_Number = "Hello";
+
+	dbconnect(Serial_Number);
 	return 0;
 }

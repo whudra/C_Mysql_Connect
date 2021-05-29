@@ -10,10 +10,9 @@
 #define DB_PASS "1234"
 #define DB_NAME "test"
 
-int dbconnect(void) {
+int dbconnect(char* Serial_Number) {
 	MYSQL* connection, conn;
 
-	const char* Serial = "hello";
 	const char* exd = "sdf";
 
 	FILE* fp;
@@ -55,7 +54,7 @@ int dbconnect(void) {
 
 	//Query 문 작성
 	query = (char*)malloc(strlen(stat) + file_size * 2 + 1);
-	len = snprintf(query, strlen(stat) + file_size * 2 + 1, stat, buf_to, Serial, exd);
+	len = snprintf(query, strlen(stat) + file_size * 2 + 1, stat, buf_to, Serial_Number, exd);
 
 	//Query 문 실행
 	query_stat = mysql_real_query(connection, query, len);
